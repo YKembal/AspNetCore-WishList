@@ -22,18 +22,19 @@ namespace WishList.Controllers
         {
             return View("Index",_context.Items.ToList());
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
             return View("Create");
         }
-
+        [HttpPost]
         public IActionResult Create(Item it)
         {
             _context.Items.Add(it);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
         public IActionResult Delete(int Id)
         {
             Item i = _context.Items.SingleOrDefault(it => it.Id == Id);
