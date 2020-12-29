@@ -29,9 +29,9 @@ namespace WishList.Controllers
             return View("Create");
         }
         [HttpPost]
-        public IActionResult Create(Item i)
+        public IActionResult Create(Item item)
         {
-            _context.Items.Add(i);
+            _context.Items.Add(item);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -42,7 +42,7 @@ namespace WishList.Controllers
             _context.Items.Remove(i);
             _context.SaveChanges();
             return RedirectToAction("Index");
-        }
+        } 
 
     }
 }
